@@ -1,9 +1,6 @@
 (function (global) {
     /**
      *
-     * @param host 宿主
-     * @param method_entry 方法入口
-     * @param method_instance 方法实例
      * @constructor
      */
     function Hook() {
@@ -24,7 +21,6 @@
         _methods:[],
         /**
          * 获取方法入口的索引
-         * @param host 宿主
          * @param method_entry 方法入口
          * @returns {*}
          */
@@ -43,7 +39,6 @@
         },
         /**
          * 获取方法实例
-         * @param host 宿主
          * @param method_entry 方法入口
          * @returns {undefined | function}
          */
@@ -54,7 +49,6 @@
         },
         /**
          * 插入方法
-         * @param host 宿主
          * @param method_entry 方法入口
          * @param method_instance 方法实例
          */
@@ -64,7 +58,6 @@
         },
         /**
          * 删除方法
-         * @param host 宿主
          * @param method_entry 方法入口
          */
         removeMethod: function (method_entry) {
@@ -77,9 +70,7 @@
         },
         /**
          * 装载钩子
-         * @param host 宿主
          * @param method_entry 方法入口
-         * @param is_proto 是否装载在原型链
          * @param operation 回调函数对象：{before: function(),after:function()}
          */
         installHook: function (method_entry,operation = {}) {
@@ -120,9 +111,7 @@
         },
         /**
          * 卸载钩子
-         * @param host 宿主
          * @param method_entry 方法入口
-         * @param is_proto 是否装载在原型链
          */
         unstallHook: function (method_entry) {
             let host = this._host;
