@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hook Demo</title>
+    <script src="js/Hook.js"></script>
+</head>
+<body>
+<label for="btn1"></br>Demo1:test for Hook </br></label>
+<input id="btn1" type="button" value="click me" onclick="demo1.test1()">
+
+<label for="btn2"></br>Demo2:test for Hook </br></label>
+<input id="btn2" type="button" value="click me" onclick="demo2.test2()">
+
+<label for="btn3"></br>Demo3:test for Hook </br></label>
+<input id="btn3" type="button" value="click me" onclick="demo3.test3()">
+
+<script>
+    let demo1 = {
+        test1:function () { alert("This is the 1st hook demo."); }
+    }
+    let demo2 = {
+        test2:function () { alert("This is the 2nd hook demo."); }
+    }
+    let demo3 = {
+        test3:function () { alert("This is the 3rd hook demo."); }
+    }
+
+    window.onload = function () {
+        Hook(demo1).installHook("test1",{
+            before:function () { alert("before callback invoked."); },
+            after:function () { alert("after callback invoked."); },
+        });
+        Hook(demo2).installHook("test2",{
+            before:function () { alert("before callback invoked."); },
+        });
+        Hook(demo3).installHook("test3",{
+            after:function () { alert("after callback invoked."); },
+        });
+    }
+</script>
+</body>
+</html>
